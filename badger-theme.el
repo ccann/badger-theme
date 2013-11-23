@@ -3,9 +3,9 @@
 
 ;;; Commentary:
 
-;;; I got frustrated with the wombat theme in Emacs, so I changed it.
+;;; Based loosely on both the wombat tomorrow themes.
 
-;;; Credits:
+;;; Credits: I followed Bozhidar Batsov's style in zenburn.el
 
 ;;; Code:
 
@@ -90,7 +90,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,badger-fg))))
    `(mode-line-buffer-id ((t (:foreground ,badger-lime))))
    `(minibuffer-prompt ((t (:foreground ,badger-lime))))
-   
+
+;; >>>>> powerline
+   `(powerline-active1 ((t (:background ,badger-dv-invert :inherit mode-line))))
+   `(powerline-active2 ((t (:background ,badger-dark-violet :inherit mode-line))))
+;; these don't seem to do anything?? overridden by powerline-active
+;;   `(powerline-inactive1 ((t (:background ,badger-bg-05))))
+;;   `(powerline-inactive2 ((t (:background ,badger-bg+1))))
+
 ;; >>>>> font-lock
    `(font-lock-keyword-face ((t (:foreground ,badger-blue))))                    
    `(font-lock-builtin-face ((t (:foreground ,badger-orange))))                  
