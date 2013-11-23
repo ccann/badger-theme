@@ -22,7 +22,7 @@
     ("badger-violet"   . "#BF93C3")
     ("badger-orange"   . "#EA9847")
     ("badger-green"    . "#86B187")
-    ("badger-lime"     . "#84c452")
+    ("badger-lime"     . "#84C452")
     ("badger-yellow"   . "#EDEB71")
     ("badger-fg+1"     . "#FBF9F3")
 ;;    ("badger-bg-1"     . "#170C0C")
@@ -83,7 +83,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;; This face is used for displaying an active region 
    `(region ((t (:background ,badger-charcoal))))
    
-;;;;;;; Font-lock
+;; >>>>> font-lock
    `(font-lock-keyword-face ((t (:foreground ,badger-blue))))                    
    `(font-lock-builtin-face ((t (:foreground ,badger-orange))))                  
 ;;   `(font-lock-constant-face ((t (:foreground ,badger-salmon))))               
@@ -95,8 +95,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-type-face ((t (:foreground ,badger-yellow))))   
    `(font-lock-constant-face ((t (:foreground ,badger-lime))))
    `(font-lock-warning-face ((t (:foreground ,badger-yellow :weight bold))))
+
+;; >>>>> eshell 
+   `(eshell-prompt ((t (:foreground ,badger-lime))))
+   `(eshell-ls-archive ((t (:foreground ,badger-orange :weight bold))))
+   `(eshell-ls-backup ((t (:inherit font-lock-comment-face))))
+   `(eshell-ls-clutter ((t (:inherit font-lock-comment-face))))
+   `(eshell-ls-directory ((t (:foreground ,badger-violet :weight normal))))
+   `(eshell-ls-executable ((t (:foreground ,badger-yellow :weight normal))))
+   `(eshell-ls-unreadable ((t (:foreground ,badger-fg))))
+   `(eshell-ls-missing ((t (:inherit font-lock-warning-face))))
+   `(eshell-ls-product ((t (:inherit font-lock-doc-face))))
+   `(eshell-ls-special ((t (:foreground ,badger-succ :weight bold))))
+   `(eshell-ls-symlink ((t (:foreground ,badger-blue :weight bold))))
    
    ))
+
 
 (provide-theme 'badger)
 ;;; badger-theme.el ends here
