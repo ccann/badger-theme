@@ -1,3 +1,3 @@
 # Badger Color Theme
 
-Emacs 24 color theme (using deftheme) inspired by the VIM wombat color theme.
+Low contrast Emacs 24 color theme (using deftheme). Inspired by the wombat and tomorrow themes.
