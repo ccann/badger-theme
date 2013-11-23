@@ -14,17 +14,23 @@
 ;;; Badger Color Pallette
 
 (defvar badger-colors-alist
-  '(("badger-kw" . "#8AC6F2")
-    ("badger-fg" . "#F6F3E8")
-    ("badger-fg+1" . "#FBF9F3")
-    ("badger-bg-1" . "#170C0C")
-    ("badger-bg-05" . "#1B1B1B")
-    ("badger-bg" . "#242424")
-    ("badger-bg+1" . "#353535")
-    ("badger-orange" . "#E5786D")
-    ("badger-orange-2" . "#962524")
-    ("badger-warn" . "magenta")
-    ("badger-succ" . "cyan"))
+  '(("badger-blue"     . "#8AC6F2")
+    ("badger-fg"       . "#F6F3E8")
+    ("badger-bg"       . "#242424")
+    ("badger-charcoal" . "#656868")
+    ("badger-salmon"   . "#F28B86")
+    ("badger-violet"   . "#BF93C3")
+    ("badger-orange"   . "#EA9847")
+    ("badger-green"    . "#86B187")
+    ("badger-lime"     . "#84c452")
+    ("badger-yellow"   . "#EDEB71")
+    ("badger-fg+1"     . "#FBF9F3")
+;;    ("badger-bg-1"     . "#170C0C")
+;;    ("badger-bg-05"    . "#1B1B1B")
+    ("badger-bg+1"     . "#353535")
+    ("badger-warn"     . "magenta")
+    ("badger-succ"     . "cyan")
+    )
   "List of Badger colors.
 Each element has the form (NAME . HEX).")
 
@@ -45,21 +51,51 @@ Also bind `class' to ((class color) (min-colors 89))."
    'badger
 ;;;;;; Built-in
    '(button ((t (:underline t))))
-   `(link ((t (:bold t :foreground ,badger-kw :underline t :weight bold))))
-   `(link-visited ((t (:foreground ,badger-orange-2 :underline t :weight normal))))
+   `(link ((t (:bold t :foreground ,badger-blue :underline t :weight bold))))
+
+;;   `(link-visited ((t (:foreground ,badger-salmon-2 :underline t :weight normal))))
+
+   ;; ordinary text. Its background color is used as the frame's background color. 
    `(default ((t (:foreground ,badger-fg :background ,badger-bg))))
-   `(cursor ((t (:foreground ,badger-fg :background ,badger-fg+1)))) 
-   `(escape-glyph ((t (:foreground ,badger-orange :bold t))))
+
+   ;;The :background attribute of this face specifies the color of the text cursor
+   `(cursor ((t (:background ,badger-fg+1)))) 
+
+   ;; The face for displaying control characters and escape sequences
+   `(escape-glyph ((t (:foreground ,badger-salmon :bold t))))
+
+   ;; The face for the narrow fringes to the left and right of windows on graphic displays.
    `(fringe ((t (:foreground ,badger-fg :background ,badger-bg+1))))
-   `(header-line ((t (:foreground ,badger-orange 
-                                  :background ,badger-bg-1
-                                  :box (:line-width -1 :style released-button)))))
-   `(highlight ((t (:background ,badger-bg-05))))
+
+   ;; fixed line displayed at the top of the emacs window, not in XEmacs
+   ;; `(header-line ((t (:foreground ,badger-salmon 
+   ;;                                :background ,badger-bg-1
+   ;;                                :box (:line-width -1 :style released-button)))))
+
+   ;;text highlighting in various contexts, when the mouse cursor is moved over a hyperlink. 
+   `(highlight ((t (:background ,badger-blue))))
+
+   ;; “lazy matches” for Isearch and Query Replace (matches other than the current one). 
+   ;; `(lazy-highlight ((t )))
    `(success ((t (:foreground ,badger-succ :weight bold))))
    `(warning ((t (:foreground ,badger-warn :weight bold)))) 
-   
-   
 
+   ;; This face is used for displaying an active region 
+   `(region ((t (:background ,badger-charcoal))))
+   
+;;;;;;; Font-lock
+   `(font-lock-keyword-face ((t (:foreground ,badger-blue))))                    
+   `(font-lock-builtin-face ((t (:foreground ,badger-orange))))                  
+;;   `(font-lock-constant-face ((t (:foreground ,badger-salmon))))               
+;;   `(font-lock-doc-face ((t (:foreground ,badger-charcoal))))                    
+   `(font-lock-comment-face ((t (:foreground ,badger-charcoal))))
+   `(font-lock-function-name-face ((t (:foreground ,badger-salmon :weight normal)))) 
+   `(font-lock-string-face ((t (:foreground ,badger-green))))
+   `(font-lock-variable-name-face ((t (:foreground ,badger-violet))))
+   `(font-lock-type-face ((t (:foreground ,badger-yellow))))   
+   `(font-lock-constant-face ((t (:foreground ,badger-lime))))
+   `(font-lock-warning-face ((t (:foreground ,badger-yellow :weight bold))))
+   
    ))
 
 (provide-theme 'badger)
