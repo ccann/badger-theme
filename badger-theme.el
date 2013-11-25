@@ -1,18 +1,25 @@
-
-;;; badger-theme.el --- An extension of the wombat color theme for Emacs 24
+;;; badger-theme.el --- A theme for Emacs 24
 
 ;;; Commentary:
+;;; Based loosely on both the wombat and tomorrow themes.
+;;; TODO:
+;;; - [ ] fix ord hidestars
+;;; - [ ] powerline?
 
-;;; Based loosely on both the wombat tomorrow themes.
+;;; Currently supports:
+;;; - [X] font-lock
+;;; - [ ] powerline (broken??)
+;;; - [X] eshell 
+;;; - [ ] org-mode
 
-;;; Credits: I followed Bozhidar Batsov's style in zenburn.el
+;;; Credits: 
+;;; I followed Bozhidar Batsov's style in zenburn.el, and used his macro.
 
 ;;; Code:
 
 (deftheme badger "The Badger color theme")
 
 ;;; Badger Color Pallette
-
 (defvar badger-colors-alist
   '(("badger-blue"     . "#8AC6F2")
     ("badger-fg"       . "#F6F3E8")
@@ -25,6 +32,12 @@
     ("badger-lime"     . "#84C452")
     ("badger-yellow"   . "#EDEB71")
     ("badger-fg+1"     . "#FBF9F3")
+    ("badger-teal"     . "#65A399")
+    ("badger-pink"     . "#E18CBB")
+    ("badger-brown"    . "#AC8952")
+    ("badger-red"      . "#E2434C")
+    ;;("badger-red"      . "#A55662")
+    
 ;;    ("badger-bg-1"     . "#170C0C")
     ("badger-bg-05"    . "#1B1B1B")
     ("badger-bg+1"     . "#353535")
@@ -51,7 +64,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 (badger-with-color-variables 
   (custom-theme-set-faces
    'badger
-;;;;;; Built-in
+
+;; >>>>> Built-in
    '(button ((t (:underline t))))
    `(link ((t (:bold t :foreground ,badger-blue :underline t :weight bold))))
 
@@ -90,6 +104,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,badger-fg))))
    `(mode-line-buffer-id ((t (:foreground ,badger-lime))))
    `(minibuffer-prompt ((t (:foreground ,badger-lime))))
+;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
 
 ;; >>>>> powerline
    `(powerline-active1 ((t (:background ,badger-dv-invert :inherit mode-line))))
@@ -125,27 +140,29 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-symlink ((t (:foreground ,badger-blue :weight bold))))
 
 ;; >>>>> Org mode
-   ;; `(org-agenda-date-today
-   ;;   ((t (:foreground ,zenburn-fg+1 :slant italic :weight bold))) t)
-   ;; `(org-agenda-structure
-   ;;   ((t (:inherit font-lock-comment-face))))
+   `(org-document-info-keyword ((t (:foreground ,badger-dv-invert))))
+   `(org-document-title ((t (:foreground ,badger-salmon :height 1.50))))
+   `(org-agenda-date-today  ((t (:foreground ,badger-salmon :slant italic))))
+   `(org-agenda-structure  ((t (:inherit font-lock-comment-face))))
    ;; `(org-archived ((t (:foreground ,zenburn-fg :weight bold))))
    ;; `(org-checkbox ((t (:background ,zenburn-bg+2 :foreground ,zenburn-fg+1
    ;;                                 :box (:line-width 1 :style released-button)))))
-   ;; `(org-date ((t (:foreground ,zenburn-blue :underline t))))
+   `(org-agenda-date ((t (:foreground ,badger-blue))))
    ;; `(org-deadline-announce ((t (:foreground ,zenburn-red-1))))
-   ;; `(org-done ((t (:bold t :weight bold :foreground ,zenburn-green+3))))
+
+   `(org-done ((t (:foreground ,badger-lime :strike-through t))))
+   `(org-todo ((t (:foreground ,badger-red))))
    ;; `(org-formula ((t (:foreground ,zenburn-yellow-2))))
    ;; `(org-headline-done ((t (:foreground ,zenburn-green+3))))
-   ;; `(org-hide ((t (:foreground ,zenburn-bg-1))))
-   ;; `(org-level-1 ((t (:foreground ,zenburn-orange))))
-   ;; `(org-level-2 ((t (:foreground ,zenburn-green+4))))
-   ;; `(org-level-3 ((t (:foreground ,zenburn-blue-1))))
-   ;; `(org-level-4 ((t (:foreground ,zenburn-yellow-2))))
-   ;; `(org-level-5 ((t (:foreground ,zenburn-cyan))))
-   ;; `(org-level-6 ((t (:foreground ,zenburn-green+2))))
-   ;; `(org-level-7 ((t (:foreground ,zenburn-red-4))))
-   ;; `(org-level-8 ((t (:foreground ,zenburn-blue-4))))
+   `(org-hide ((t (:foreground ,badger-bg :background ,badger-bg :weight normal :slant normal))))
+   `(org-level-1 ((t (:foreground ,badger-blue))))
+   `(org-level-2 ((t (:foreground ,badger-violet))))
+   `(org-level-3 ((t (:foreground ,badger-orange))))
+   `(org-level-4 ((t (:foreground ,badger-yellow))))
+   `(org-level-5 ((t (:foreground ,badger-salmon))))
+   `(org-level-6 ((t (:foreground ,badger-green))))
+   `(org-level-7 ((t (:foreground ,badger-brown))))
+   `(org-level-8 ((t (:foreground ,badger-teal))))
    ;; `(org-link ((t (:foreground ,zenburn-yellow-2 :underline t))))
    ;; `(org-scheduled ((t (:foreground ,zenburn-green+4))))
    ;; `(org-scheduled-previously ((t (:foreground ,zenburn-red-4))))
@@ -155,7 +172,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;; `(org-table ((t (:foreground ,zenburn-green+2))))
    ;; `(org-tag ((t (:bold t :weight bold))))
    ;; `(org-time-grid ((t (:foreground ,zenburn-orange))))
-   ;; `(org-todo ((t (:bold t :foreground ,zenburn-red :weight bold))))
+   
    ;; `(org-upcoming-deadline ((t (:inherit font-lock-keyword-face))))
    ;; `(org-warning ((t (:bold t :foreground ,zenburn-red :weight bold :underline nil))))
    ;; `(org-column ((t (:background ,zenburn-bg-1))))
