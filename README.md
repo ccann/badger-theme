@@ -17,11 +17,7 @@ This doesn't look great, IMO.
 
 If you would prefer the DONE keyword to not have the stikethrough effect use 
 
-    M-x customize-face
-
-then 
-
-    org-done
+    M-x customize-face RET org-done
 
 and change stike-through's value to Off. Save this change so that it applies to future emacs sessions.
 
