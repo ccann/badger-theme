@@ -9,7 +9,7 @@ Some people might prefer the headline after a DONE keyword to be ~~struck-throug
 
 Note that this strikethough extends to the end of the line, so if you tag a headline the strikethrough extends over empty space to reach the tag:
 
-![alt text](https://github.com/ccann/badger-theme/blob/master/img/strikethrough.png "ugly strikethrough")
+![alt text](https://raw.github.com/ccann/badger-theme/master/img/strikethrough.png "ugly strikethrough")
 
 This doesn't look great, IMO.
 
