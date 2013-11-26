@@ -161,7 +161,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-done ((t (:foreground ,badger-lime :strike-through t))))
    `(org-todo ((t (:foreground ,badger-red))))
    `(org-formula ((t (:foreground ,badger-violet))))
-   ;;`(org-headline-done ((t (:strike-through t :foreground ,badger-charcoal))))
+   `(org-headline-done ((t (:strike-through t :foreground ,badger-charcoal))))
    `(org-hide ((t (:foreground ,badger-bg)))) 
    `(org-level-1 ((t (:foreground ,badger-blue))))
    `(org-level-2 ((t (:foreground ,badger-violet))))
