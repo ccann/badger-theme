@@ -2,13 +2,10 @@
 
 ;;; Commentary:
 ;;; Based loosely on both the wombat and tomorrow themes.
-;;; TODO:
-;;; - [ ] fix ord hidestars
-;;; - [ ] powerline?
 
 ;;; Currently supports:
 ;;; - [X] font-lock
-;;; - [ ] powerline (broken??)
+;;; - [ ] 
 ;;; - [X] eshell 
 ;;; - [X] org-mode
 
@@ -115,17 +112,14 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
 
 ;; >>>>> powerline
-   `(powerline-active1 ((t (:background ,badger-dv-invert :inherit mode-line))))
-   `(powerline-active2 ((t (:background ,badger-dark-violet :inherit mode-line))))
-;; these don't seem to do anything?? overridden by powerline-active
+;;   `(powerline-active1 ((t (:background ,"black" :inherit mode-line))))
+;;   `(powerline-active2 ((t (:background ,"black" :inherit mode-line))))
 ;;   `(powerline-inactive1 ((t (:background ,badger-bg-05))))
 ;;   `(powerline-inactive2 ((t (:background ,badger-bg+1))))
 
 ;; >>>>> font-lock
    `(font-lock-keyword-face ((t (:foreground ,badger-blue))))                    
    `(font-lock-builtin-face ((t (:foreground ,badger-orange))))                  
-;;   `(font-lock-constant-face ((t (:foreground ,badger-salmon))))               
-;;   `(font-lock-doc-face ((t (:foreground ,badger-charcoal))))                    
    `(font-lock-comment-face ((t (:foreground ,badger-charcoal))))
    `(font-lock-function-name-face ((t (:foreground ,badger-salmon :weight normal)))) 
    `(font-lock-string-face ((t (:foreground ,badger-green))))
@@ -150,14 +144,9 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;; >>>>> Org mode
    `(org-document-info-keyword ((t (:foreground ,badger-dv-invert))))
    `(org-document-title ((t (:foreground ,badger-salmon :height 1.50))))
-   `(org-agenda-date-today  ((t (:foreground ,badger-salmon :slant italic))))
-   `(org-agenda-structure  ((t (:inherit font-lock-comment-face))))
-   ;; `(org-archived ((t (:foreground ,zenburn-fg :weight bold))))
-   ;; `(org-checkbox ((t (:background ,zenburn-bg+2 :foreground ,zenburn-fg+1
-   ;;                                 :box (:line-width 1 :style released-button)))))
-   `(org-agenda-date ((t (:foreground ,badger-blue))))
-   ;; `(org-deadline-announce ((t (:foreground ,zenburn-red-1))))
-   `(org-date ((t (:foreground ,badger-link :underline t))))
+   `(org-archived ((t (:foreground ,badger-fg :weight bold))))
+   `(org-checkbox ((t (:foreground ,badger-fg+1 :foreground ,badger-dv-invert 
+                                   :box (:line-width 1 :style released-button)))))
    `(org-done ((t (:foreground ,badger-lime :strike-through t))))
    `(org-todo ((t (:foreground ,badger-red))))
    `(org-formula ((t (:foreground ,badger-violet))))
@@ -172,15 +161,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-level-7 ((t (:foreground ,badger-brown))))
    `(org-level-8 ((t (:foreground ,badger-teal))))
    `(org-link ((t (:foreground ,badger-link :underline t))))
-   ;; `(org-scheduled ((t (:foreground ,zenburn-green+4))))
+   
+   `(org-agenda-date ((t (:foreground ,badger-blue))))
+   `(org-deadline-announce ((t (:foreground ,badger-dull-red))))
+   `(org-date ((t (:foreground ,badger-link :underline t))))
+   `(org-agenda-date-today  ((t (:foreground ,badger-salmon :slant italic))))
+   `(org-agenda-structure  ((t (:inherit font-lock-comment-face))))
+   ;; `(org-scheduled ((t (:foreground ,zenburn-green+4))))x
    ;; `(org-scheduled-previously ((t (:foreground ,zenburn-red-4))))
    ;; `(org-scheduled-today ((t (:foreground ,zenburn-blue+1))))
    ;; `(org-sexp-date ((t (:foreground ,zenburn-blue+1 :underline t))))
+   ;; `(org-time-grid ((t (:foreground ,zenburn-orange))))
+   ;; `(org-upcoming-deadline ((t (:inherit font-lock-keyword-face))))
+
    `(org-special-keyword ((t (:foreground ,badger-dv-invert :weight normal))))
    `(org-table ((t (:foreground ,badger-dv-invert))))
    `(org-tag ((t (:bold t :foreground ,badger-orange :strike-through nil))))
-   ;; `(org-time-grid ((t (:foreground ,zenburn-orange))))
-   ;; `(org-upcoming-deadline ((t (:inherit font-lock-keyword-face))))
    `(org-warning ((t (:bold t :foreground ,badger-pink :weight bold))))
    `(org-column ((t (:background ,badger-bg-1))))
    `(org-column-title ((t (:background ,badger-bg-1 :foreground ,badger-lime :underline t))))
@@ -188,8 +184,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-footnote ((t (:foreground ,badger-link :underline t))))
    `(org-code ((t (:foreground ,badger-dv-invert))))
    `(org-verbatim ((t (:inherit org-code))))
-
-   
 
    ))
 
