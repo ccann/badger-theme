@@ -10,7 +10,7 @@
 ;;; - [X] font-lock
 ;;; - [ ] powerline (broken??)
 ;;; - [X] eshell 
-;;; - [ ] org-mode
+;;; - [X] org-mode
 
 ;;; Credits: 
 ;;; I followed Bozhidar Batsov's style in zenburn.el, and used his macro.
@@ -23,7 +23,8 @@
 (defvar badger-colors-alist
   '(("badger-blue"     . "#8AC6F2")
     ("badger-fg"       . "#F6F3E8")
-    ("badger-bg"       . "#242424")
+    ("badger-bg"       . "#1C1C1C")
+    ("badger-bg-1"     . "#171717")
     ("badger-charcoal" . "#656868")
     ("badger-salmon"   . "#F28B86")
     ("badger-violet"   . "#BF93C3")
@@ -36,13 +37,15 @@
     ("badger-pink"     . "#E18CBB")
     ("badger-brown"    . "#AC8952")
     ("badger-red"      . "#E2434C")
-    ;;("badger-red"      . "#A55662")
+    ("badger-dull-red" . "#A55662")
     
 ;;    ("badger-bg-1"     . "#170C0C")
     ("badger-bg-05"    . "#1B1B1B")
     ("badger-bg+1"     . "#353535")
     ("badger-dark-violet" . "#635770")
+    ("badger-darker-violet"  .   "#433F4F")
     ("badger-dv-invert"   . "#9AA68E")
+    ("badger-link"       .  "#8ACDAA")
     ("badger-warn"     . "magenta")
     ("badger-succ"     . "cyan")
     )
@@ -75,7 +78,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(default ((t (:foreground ,badger-fg :background ,badger-bg))))
 
    ;;The :background attribute of this face specifies the color of the text cursor
-   `(cursor ((t (:background ,badger-fg+1)))) 
+   `(cursor ((t (:background ,badger-salmon)))) 
 
    ;; The face for displaying control characters and escape sequences
    `(escape-glyph ((t (:foreground ,badger-salmon :bold t))))
@@ -93,16 +96,21 @@ Also bind `class' to ((class color) (min-colors 89))."
 
    ;; “lazy matches” for Isearch and Query Replace (matches other than the current one). 
    ;; `(lazy-highlight ((t )))
-   `(success ((t (:foreground ,badger-succ :weight bold))))
-   `(warning ((t (:foreground ,badger-warn :weight bold)))) 
+   `(success ((t (:foreground ,badger-link :weight bold))))
+   `(warning ((t (:foreground ,badger-pink :weight bold)))) 
 
    ;; This face is used for displaying an active region 
    `(region ((t (:background ,badger-charcoal))))
 
 ;; >>>>> mode-line
-   `(mode-line ((t (:background ,badger-dark-violet :foreground "black"))))
-   `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,badger-fg))))
-   `(mode-line-buffer-id ((t (:foreground ,badger-lime))))
+;;   `(mode-line ((t (:background ,badger-dk :foreground ,"gray"))))
+   `(mode-line    ((,class (:foreground ,badger-charcoal
+                                        :background ,"black"
+                                        :box (:line-width -1 :style released-button)))
+                   (t :inverse-video t)))
+
+   `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,badger-charcoal))))
+   `(mode-line-buffer-id ((t (:foreground ,badger-salmon))))
    `(minibuffer-prompt ((t (:foreground ,badger-lime))))
 ;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
 
@@ -136,8 +144,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-unreadable ((t (:foreground ,badger-fg))))
    `(eshell-ls-missing ((t (:inherit font-lock-warning-face))))
    `(eshell-ls-product ((t (:inherit font-lock-doc-face))))
-   `(eshell-ls-special ((t (:foreground ,badger-succ :weight bold))))
-   `(eshell-ls-symlink ((t (:foreground ,badger-blue :weight bold))))
+   `(eshell-ls-special ((t (:foreground ,badger-blue :weight bold))))
+   `(eshell-ls-symlink ((t (:foreground ,badger-link :weight bold))))
 
 ;; >>>>> Org mode
    `(org-document-info-keyword ((t (:foreground ,badger-dv-invert))))
@@ -149,12 +157,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;                                 :box (:line-width 1 :style released-button)))))
    `(org-agenda-date ((t (:foreground ,badger-blue))))
    ;; `(org-deadline-announce ((t (:foreground ,zenburn-red-1))))
-
+   `(org-date ((t (:foreground ,badger-link :underline t))))
    `(org-done ((t (:foreground ,badger-lime :strike-through t))))
    `(org-todo ((t (:foreground ,badger-red))))
-   ;; `(org-formula ((t (:foreground ,zenburn-yellow-2))))
-   ;; `(org-headline-done ((t (:foreground ,zenburn-green+3))))
-   `(org-hide ((t (:foreground ,badger-bg :background ,badger-bg :weight normal :slant normal))))
+   `(org-formula ((t (:foreground ,badger-violet))))
+   ;;`(org-headline-done ((t (:strike-through t :foreground ,badger-charcoal))))
+   `(org-hide ((t (:foreground ,badger-bg)))) 
    `(org-level-1 ((t (:foreground ,badger-blue))))
    `(org-level-2 ((t (:foreground ,badger-violet))))
    `(org-level-3 ((t (:foreground ,badger-orange))))
@@ -163,24 +171,23 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-level-6 ((t (:foreground ,badger-green))))
    `(org-level-7 ((t (:foreground ,badger-brown))))
    `(org-level-8 ((t (:foreground ,badger-teal))))
-   ;; `(org-link ((t (:foreground ,zenburn-yellow-2 :underline t))))
+   `(org-link ((t (:foreground ,badger-link :underline t))))
    ;; `(org-scheduled ((t (:foreground ,zenburn-green+4))))
    ;; `(org-scheduled-previously ((t (:foreground ,zenburn-red-4))))
    ;; `(org-scheduled-today ((t (:foreground ,zenburn-blue+1))))
    ;; `(org-sexp-date ((t (:foreground ,zenburn-blue+1 :underline t))))
-   ;; `(org-special-keyword ((t (:foreground ,zenburn-fg-1 :weight normal))))
-   ;; `(org-table ((t (:foreground ,zenburn-green+2))))
-   ;; `(org-tag ((t (:bold t :weight bold))))
+   `(org-special-keyword ((t (:foreground ,badger-dv-invert :weight normal))))
+   `(org-table ((t (:foreground ,badger-dv-invert))))
+   `(org-tag ((t (:bold t :foreground ,badger-orange :strike-through nil))))
    ;; `(org-time-grid ((t (:foreground ,zenburn-orange))))
-   
    ;; `(org-upcoming-deadline ((t (:inherit font-lock-keyword-face))))
-   ;; `(org-warning ((t (:bold t :foreground ,zenburn-red :weight bold :underline nil))))
-   ;; `(org-column ((t (:background ,zenburn-bg-1))))
-   ;; `(org-column-title ((t (:background ,zenburn-bg-1 :underline t :weight bold))))
-   ;; `(org-mode-line-clock ((t (:foreground ,zenburn-fg :background ,zenburn-bg-1))))
-   ;; `(org-mode-line-clock-overrun ((t (:foreground ,zenburn-bg :background ,zenburn-red-1))))
-   ;; `(org-ellipsis ((t (:foreground ,zenburn-yellow-1 :underline t))))
-   ;; `(org-footnote ((t (:foreground ,zenburn-cyan :underline t))))
+   `(org-warning ((t (:bold t :foreground ,badger-pink :weight bold))))
+   `(org-column ((t (:background ,badger-bg-1))))
+   `(org-column-title ((t (:background ,badger-bg-1 :foreground ,badger-lime :underline t))))
+   `(org-mode-line-clock ((t (:foreground ,badger-yellow))))
+   `(org-footnote ((t (:foreground ,badger-link :underline t))))
+   `(org-code ((t (:foreground ,badger-dv-invert))))
+   `(org-verbatim ((t (:inherit org-code))))
 
    
 
