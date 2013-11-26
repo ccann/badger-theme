@@ -2,7 +2,9 @@
 
 Low contrast Emacs 24 color theme (using deftheme). Inspired by the wombat and tomorrow themes.
 
-# org-mode notes
+![alt text](https://raw.github.com/ccann/badger-theme/master/img/badger-theme.png "org-preview")
+
+## org-mode 
 Some people might prefer the headline after a DONE keyword to be ~~struck-through~~. Add the following code to your init file:
 
     (setq org-fontify-done-headline t)

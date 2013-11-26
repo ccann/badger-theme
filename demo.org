@@ -1,0 +1,33 @@
+#+TITLE: BADGER THEME DEMO
+#+options: toc:nil num:nil
+# this is a work in progress :-)
+
+* TODO Support [4/9]                                                                 :development:
+DEADLINE: <2014-01-01 Wed>
+- [X] built-ins
+- [X] font-lock
+- [X] org-mode basics
+- [X] eshell
+- [ ] org-mode agenda / scheduling
+- [ ] emacs-jedi
+- [ ] powerline
+- [ ] ido-mode
+- [ ] flyspell
+
+
+* Headline 1
+** DONE Headline 2 (completed task) [0/0] 
+*** Headline 3
+****  Headline 4
+*****  Headline 5
+******  Headline 6
+*******  Headline 7
+********  Headline 8
+
+
+| This is a table |   |
+|-----------------+---|
+|                 |   |
+|                 |   |
+
+this is a [[https://github.com/ccann/badger-theme][link]]

@@ -106,7 +106,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                         :box (:line-width -1 :style released-button)))
                    (t :inverse-video t)))
 
-   `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,badger-charcoal))))
+   `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,"black" :box nil))))
    `(mode-line-buffer-id ((t (:foreground ,badger-salmon))))
    `(minibuffer-prompt ((t (:foreground ,badger-lime))))
 ;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
