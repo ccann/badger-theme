@@ -1,6 +1,6 @@
 # Badger Color Theme
 
-Low contrast Emacs 24 color theme (using deftheme). Inspired by the wombat and tomorrow themes.
+Medium contrast Emacs 24 color theme (using deftheme). Inspired by the wombat and tomorrow themes.
 
 ![alt text](https://raw.github.com/ccann/badger-theme/master/img/badger-theme.png "org-preview")
 
