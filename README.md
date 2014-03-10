@@ -1,5 +1,4 @@
 
-hahahah
 # Badger Color Theme
 
 Medium contrast Emacs 24 color theme (using deftheme). Inspired by the wombat and tomorrow themes.
