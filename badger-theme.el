@@ -29,7 +29,7 @@
     ("badger-orange"        . "#EA9847")
     ("badger-green"         . "#86B187")
     ("badger-yellow"        . "#E0D063")
-
+    
 ;;; Secondary Hues
     ("badger-lime"          . "#84C452")
     ("badger-teal"          . "#65A399")
@@ -96,7 +96,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(warning ((t (:foreground ,badger-pink :weight bold)))) 
 
    ;; This face is used for displaying an active region 
-   `(region ((t (:background ,badger-charcoal))))
+   `(region ((t (:background ,"black"))))
 
 ;; >>>>> mode-line
    `(mode-line    ((,class (:foreground ,badger-charcoal
