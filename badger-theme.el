@@ -15,11 +15,8 @@
   '(
     ("badger-fg"            . "#F6F3E8")
     ("badger-fg+1"          . "#FBF9F3")
-    ("badger-bg"            . "#1C1C1C")
-    ("badger-bg-1"          . "#171717")
-;;  ("badger-bg-1"          . "#170C0C")
-    ("badger-bg-05"         . "#1B1B1B")
-    ("badger-bg+1"          . "#353535")
+    ("badger-bg"            . "#171717")
+    ("badger-bg+1"          . "#2F2F2F")
 
 ;;; Primary Hues
     ("badger-blue"          . "#8AC6F2")
@@ -29,6 +26,7 @@
     ("badger-orange"        . "#EA9847")
     ("badger-green"         . "#86B187")
     ("badger-yellow"        . "#E0D063")
+    ("badger-sand"          . "#C7B299")
 
 ;;; Secondary Hues
     ("badger-lime"          . "#84C452")
@@ -42,14 +40,14 @@
     ("badger-olive"         . "#9AA68E")
 
 ;;; Misc.
-    ("badger-link"          .  "#8ACDAA")
+    ("badger-link"          . "#8ACDAA")
     ("badger-warn"          . "magenta")
     ("badger-succ"          . "cyan")
+    ("badger-hl"     . "#1D1D1D")
     )
   "List of Badger colors.
 Each element has the form (NAME . HEX).")
 
-;; Borrowed from Bozhidar Batsov
 (defmacro badger-with-color-variables (&rest body)
   "`let' bind all colors defined in `badger-colors-alist' around BODY.
 Also bind `class' to ((class color) (min-colors 89))."
@@ -65,10 +63,10 @@ Also bind `class' to ((class color) (min-colors 89))."
   (custom-theme-set-faces
    'badger
 
-;; >>>>> Built-in
+   ;; >>>>> Built-in
    '(button ((t (:underline t))))
    `(link ((t (:bold t :foreground ,badger-blue :underline t :weight bold))))
-;; `(link-visited ((t (:foreground ,badger-salmon-2 :underline t :weight normal))))
+   ;; `(link-visited ((t (:foreground ,badger-salmon-2 :underline t :weight normal))))
 
    ;; ordinary text. Its background color is used as the frame's background color. 
    `(default ((t (:foreground ,badger-fg :background ,badger-bg))))
@@ -80,15 +78,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(escape-glyph ((t (:foreground ,badger-salmon :bold t))))
 
    ;; The face for the narrow fringes to the left and right of windows on graphic displays.
-   `(fringe ((t (:foreground ,badger-fg :background ,badger-bg-05))))
+   `(fringe ((t (:foreground ,badger-fg :background ,"black"))))
 
    ;; fixed line displayed at the top of the emacs window, not in XEmacs
    ;; `(header-line ((t (:foreground ,badger-salmon 
-   ;;                                :background ,badger-bg-1
+   ;;                                :background ,"black"
    ;;                                :box (:line-width -1 :style released-button)))))
 
    ;;text highlighting in various contexts, when the mouse cursor is moved over a hyperlink. 
-   `(highlight ((t (:background ,badger-bg+1))))
+   `(highlight ((t (:background ,badger-hl))))
 
    ;; “lazy matches” for Isearch and Query Replace (matches other than the current one). 
    ;; `(lazy-highlight ((t )))
@@ -96,37 +94,35 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(warning ((t (:foreground ,badger-pink :weight bold)))) 
 
    ;; This face is used for displaying an active region 
-   `(region ((t (:background ,badger-charcoal))))
+   `(region ((t (:background ,"black"))))
 
-;; >>>>> mode-line
+   ;; >>>>> mode-line
    `(mode-line    ((,class (:foreground ,badger-charcoal
                                         :background ,"black"
                                         :box (:line-width -1 :style released-button)))
-                   (t :inverse-video t)))
+                   (t :inverse-video nil)))
 
    `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,"black" :box nil))))
    `(mode-line-buffer-id ((t (:foreground ,badger-salmon))))
    `(minibuffer-prompt ((t (:foreground ,badger-violet))))
-;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
 
-;; >>>>> powerline
-;;   `(powerline-active1 ((t (:background ,"black" :inherit mode-line))))
-;;   `(powerline-active2 ((t (:background ,"black" :inherit mode-line))))
-;;   `(powerline-inactive1 ((t (:background ,badger-bg-05))))
-;;   `(powerline-inactive2 ((t (:background ,badger-bg+1))))
+   ;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
 
-;; >>>>> font-lock
+
+   ;; >>>>> font-lock
    `(font-lock-keyword-face ((t (:foreground ,badger-blue))))                    
    `(font-lock-builtin-face ((t (:foreground ,badger-salmon))))                  
-   `(font-lock-comment-face ((t (:foreground ,badger-charcoal))))
+   `(font-lock-comment-face ((t (:foreground ,badger-charcoal :slant italic))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,badger-charcoal))))
    `(font-lock-function-name-face ((t (:foreground ,badger-orange :weight normal)))) 
    `(font-lock-string-face ((t (:foreground ,badger-green))))
    `(font-lock-variable-name-face ((t (:foreground ,badger-violet))))
-   `(font-lock-type-face ((t (:foreground ,badger-yellow))))   
+   ;;   `(font-lock-type-face ((t (:foreground ,badger-yellow))))
+   `(font-lock-type-face ((t (:foreground ,badger-sand))))   
    `(font-lock-constant-face ((t (:foreground ,badger-salmon))))
    `(font-lock-warning-face ((t (:foreground ,badger-yellow :weight bold))))
 
-;; >>>>> eshell 
+   ;; >>>>> eshell 
    `(eshell-prompt ((t (:foreground ,badger-lime))))
    `(eshell-ls-archive ((t (:foreground ,badger-orange :weight bold))))
    `(eshell-ls-backup ((t (:inherit font-lock-comment-face))))
@@ -139,7 +135,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-special ((t (:foreground ,badger-blue :weight bold))))
    `(eshell-ls-symlink ((t (:foreground ,badger-link :weight bold))))
 
-;; >>>>> Org mode
+   ;; >>>>> Org mode
    `(org-document-info-keyword ((t (:foreground ,badger-olive))))
    `(org-document-title ((t (:foreground ,badger-salmon :height 1.50))))
    `(org-archived ((t (:foreground ,badger-fg :weight bold))))
@@ -176,14 +172,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-table ((t (:foreground ,badger-olive))))
    `(org-tag ((t (:bold t :foreground ,badger-orange :strike-through nil))))
    `(org-warning ((t (:bold t :foreground ,badger-pink :weight bold))))
-   `(org-column ((t (:background ,badger-bg-1))))
-   `(org-column-title ((t (:background ,badger-bg-1 :foreground ,badger-lime :underline t))))
+   `(org-column ((t (:background ,"black"))))
+   `(org-column-title ((t (:background ,"black" :foreground ,badger-lime :underline t))))
    `(org-mode-line-clock ((t (:foreground ,badger-yellow))))
    `(org-footnote ((t (:foreground ,badger-link :underline t))))
    `(org-code ((t (:foreground ,badger-olive))))
    `(org-verbatim ((t (:inherit org-code))))
 
-;; >>>>> auto-complete
+   ;; >>>>> python (elpy)
+   `(highlight-indentation-face ((t (:background ,badger-bg))))
+   
+   ;; >>>>> auto-complete
    ;; `(ac-candidate-face ((t (:background ,zenburn-bg+3 :foreground ,zenburn-bg-2))))
    ;; `(ac-selection-face ((t (:background ,zenburn-blue-4 :foreground ,zenburn-fg))))
    ;; `(popup-tip-face ((t (:background ,zenburn-yellow-2 :foreground ,zenburn-bg-2))))

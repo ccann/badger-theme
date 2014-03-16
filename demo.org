@@ -10,10 +10,9 @@ DEADLINE: <2014-01-01 Wed>
 - [X] font-lock
 - [X] org-mode basics
 - [X] eshell
-- [ ] smart-mode-line!!
+- [ ] +powerline+ smart-mode-line (sml > powerline)
 - [ ] org-mode agenda / scheduling
 - [ ] emacs-jedi
-- [ ] powerline
 - [ ] ido-mode
 - [ ] flyspell
 
