@@ -58,7 +58,6 @@ Also bind `class' to ((class color) (min-colors 89))."
                    badger-colors-alist))
      ,@body))
 
-
 (badger-with-color-variables 
   (custom-theme-set-faces
    'badger
@@ -89,7 +88,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(highlight ((t (:background ,badger-hl))))
 
    ;; “lazy matches” for Isearch and Query Replace (matches other than the current one). 
-   ;; `(lazy-highlight ((t )))
+   `(lazy-highlight ((t (:background ,badger-yellow :foreground ,"black" :weight extra-bold))))
+
+   ;; This face is used to highlight the current Isearch match 
+   `(isearch ((t (:background ,badger-succ :foreground ,"black" :weight extra-bold))))
+
+   
    `(success ((t (:foreground ,badger-link :weight bold))))
    `(warning ((t (:foreground ,badger-pink :weight bold)))) 
 
@@ -183,15 +187,35 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(highlight-indentation-face ((t (:background ,badger-bg))))
    
    ;; >>>>> auto-complete
-   ;; `(ac-candidate-face ((t (:background ,zenburn-bg+3 :foreground ,zenburn-bg-2))))
-   ;; `(ac-selection-face ((t (:background ,zenburn-blue-4 :foreground ,zenburn-fg))))
-   ;; `(popup-tip-face ((t (:background ,zenburn-yellow-2 :foreground ,zenburn-bg-2))))
-   ;; `(popup-scroll-bar-foreground-face ((t (:background ,zenburn-blue-5))))
-   ;; `(popup-scroll-bar-background-face ((t (:background ,zenburn-bg-1))))
-   ;; `(popup-isearch-match ((t (:background ,zenburn-bg :foreground ,zenburn-fg))))
+   `(ac-candidate-face ((t (:background ,badger-sand :foreground ,"black"))))
+   `(ac-selection-face ((t (:background ,badger-violet :foreground ,"black"))))
+   `(popup-tip-face ((t (:background ,badger-sand :foreground ,"black"))))
+   `(popup-scroll-bar-foreground-face ((t (:background ,badger-dark-violet))))
+   `(popup-scroll-bar-background-face ((t (:background ,badger-olive))))
+   `(popup-isearch-match ((t (:background ,badger-yellow :foreground ,"black"))))
 
-   ))
+   ;; >>>>> smart-mode-line
+   ;;`(sml/global ((t (:background ,"black" :inverse-video nil))))
+   `(sml/folder ((t (:foreground ,badger-charcoal))))
+   `(sml/filename ((t (:foreground ,badger-salmon :weight normal))))
+   `(sml/prefix   ((t (:foreground ,badger-salmon :weight normal))))
+   `(sml/line-number    ((t (:foreground ,badger-pink))))  
+   `(sml/col-number ((t (:foreground ,badger-charcoal))))
+   `(sml/read-only ((t (:foreground ,badger-charcoal))))
+   `(sml/outside-modified ((t (:foreground ,badger-red))))
+   `(sml/modified ((t (:foreground ,badger-red))))
+   `(sml/remote ((t (:foreground ,badger-charcoal))))
+   `(sml/numbers-separator ((t (:foreground ,badger-charcoal))))
+   ;;`(sml/client ((t (:foreground ,badger-succ))))
+   ;;`(sml/not-modified ((t (:foreground ,badger-yellow))))
+   `(sml/git  ((t (:foreground ,badger-blue))))
+   `(sml/vc-edited  ((t (:foreground ,badger-blue))))
+   `(sml/modes ((t (:foreground ,badger-pink))))
+   `(sml/position-percentage ((t (:foreground ,badger-charcoal))))
+   ) 
+  )
 
 
 (provide-theme 'badger)
 ;;; badger-theme.el ends here
+    
