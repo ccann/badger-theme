@@ -26,8 +26,12 @@
     ("badger-orange"        . "#EA9847")
     ("badger-green"         . "#86B187")
     ("badger-yellow"        . "#E0D063")
+<<<<<<< HEAD
     ("badger-sand"          . "#C7B299")
 
+=======
+    
+>>>>>>> 28b1c827ea91e39cab08062b66711e2c53492896
 ;;; Secondary Hues
     ("badger-lime"          . "#84C452")
     ("badger-teal"          . "#65A399")
