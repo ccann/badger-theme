@@ -100,6 +100,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;; This face is used for displaying an active region 
    `(region ((t (:background ,"black"))))
 
+   `(show-paren-match-face ((t (:background ,badger-lime :foreground ,"black" ))))
+
    ;; >>>>> mode-line
    `(mode-line    ((,class (:foreground ,badger-charcoal
                                         :background ,"black"
