@@ -185,10 +185,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((t (:foreground ,badger-olive))))
    `(org-verbatim ((t (:inherit org-code))))
    
-   ;; >>>>> python (elpy)
+   ;; >>>>> elpy and ipython
    `(highlight-indentation-face ((t (:background ,badger-bg))))
+   `(comint-highlight-prompt ((t (:inherit eshell-prompt))))
    
-   ;; >>>>> auto-complete
+   ;; >>>>> auto-complete and popup
    `(ac-candidate-face ((t (:background ,badger-sand :foreground ,"black"))))
    `(ac-selection-face ((t (:background ,badger-violet :foreground ,"black"))))
    `(popup-tip-face ((t (:background ,badger-sand :foreground ,"black"))))
@@ -217,6 +218,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    ) 
   )
 
+(setq ansi-color-names-vector
+      ["black" "#E2434C" "#86B187" "#E0D063"  "#84C452" "#E18CBB" "#8AC6F2" "white"])
 
 (provide-theme 'badger)
 ;;; badger-theme.el ends here

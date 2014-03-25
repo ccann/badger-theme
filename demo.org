@@ -4,15 +4,17 @@
 
 
 
-* TODO Support [4/10]                                                                :development:
+* TODO Support [7/11]                                                                :development:
 DEADLINE: <2014-01-01 Wed>
 - [X] built-ins
 - [X] font-lock
 - [X] org-mode basics
 - [X] eshell
-- [ ] +powerline+ smart-mode-line (sml > powerline)
+- [X] +powerline+ smart-mode-line (sml > powerline)
 - [ ] org-mode agenda / scheduling
-- [ ] emacs-jedi
+- [X] autocomplete
+- [X] isearch
+- [ ] elpy, ipython
 - [ ] ido-mode
 - [ ] flyspell
 
