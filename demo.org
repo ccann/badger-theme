@@ -2,24 +2,22 @@
 #+options: toc:nil num:nil
 # this is a work in progress :-)
 
-
-
-* TODO Support [7/11]                                                                :development:
+* TODO Support [8/11]                                                                :development:
 DEADLINE: <2014-01-01 Wed>
 - [X] built-ins
 - [X] font-lock
 - [X] org-mode basics
 - [X] eshell
 - [X] +powerline+ smart-mode-line (sml > powerline)
-- [ ] org-mode agenda / scheduling
 - [X] autocomplete
 - [X] isearch
-- [ ] elpy, ipython
+- [X] elpy, ipython
 - [ ] ido-mode
+- [ ] org-mode agenda / scheduling
 - [ ] flyspell
 
 
-* Headline 1
+* DONE Headline 1
 ** DONE Headline 2 (completed task) [0/0] 
 *** Headline 3
 ****  Headline 4
