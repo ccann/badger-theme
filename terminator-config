@@ -8,8 +8,9 @@
   split_horiz = <Primary>1
   close_window = <Primary>w
 [profiles]
+
   [[default]]
-    palette = "#2f2f2f:#8ac6f2:#f28b86:#ea9847:#e0d063:#84c452:#e18cbb:#e2434c:#fbf9f3:#656868:#bf93c3:#86b187:#c7b299:#65a399:#9aa68e:#635770"
+    palette = "#2f2f2f:#8ac6f2:#f28b86:#ea9847:#e0d063:#84c452:#e18cbb:#e2434c:#fbf9f3:#656868:#bf93c3:#86b187:#c7b299:#65a399:#9aa68e:#635770"c
     background_color = "#171717"
     foreground_color = "#f6f3e8"
     cursor_color = "#F28B86"
@@ -20,6 +21,13 @@
     show_titlebar = False
     font = Source Code Pro Medium 9
     scrollback_infinite = True
+
+  [[badger]]
+    palette = "#2f2f2f:#8ac6f2:#f28b86:#ea9847:#e0d063:#84c452:#e18cbb:#e2434c:#fbf9f3:#656868:#bf93c3:#86b187:#c7b299:#65a399:#9aa68e:#635770"
+    background_color = "#171717"
+    foreground_color = "#f6f3e8"
+    cursor_color = "#F28B86"
+
 [layouts]
   [[default]]
     [[[child1]]]
