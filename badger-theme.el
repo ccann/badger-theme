@@ -3,9 +3,6 @@
 ;;; Commentary:
 ;;; Based loosely on both the wombat and tomorrow (Base16) themes.
 
-;;; Credits: 
-;;; I followed Bozhidar Batsov's style in zenburn.el, and used his macro.
-
 ;;; Code:
 
 (deftheme badger "The Badger color theme")
@@ -43,10 +40,7 @@
     ("badger-link"          . "#8ACDAA")
     ("badger-warn"          . "magenta")
     ("badger-succ"          . "cyan")
-    ("badger-hl"     . "#1D1D1D")
-    )
-  "List of Badger colors.
-Each element has the form (NAME . HEX).")
+    ("badger-hl"            . "#1D1D1D")))
 
 (defmacro badger-with-color-variables (&rest body)
   "`let' bind all colors defined in `badger-colors-alist' around BODY.
@@ -105,7 +99,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;; >>>>> mode-line
    `(mode-line    ((,class (:foreground ,badger-charcoal
                                         :background ,"black"
-                                        :box (:line-width -1 :style released-button)))
+                                       ;; :box (:line-width -1 :style released-button)
+                                        ))
                    (t :inverse-video nil)))
 
    `(mode-line-inactive ((t (:background ,badger-bg+1 :foreground ,"black" :box nil))))
@@ -116,17 +111,19 @@ Also bind `class' to ((class color) (min-colors 89))."
 
 
    ;; >>>>> font-lock
-   `(font-lock-keyword-face ((t (:foreground ,badger-blue))))                    
-   `(font-lock-builtin-face ((t (:foreground ,badger-salmon))))                  
-   `(font-lock-comment-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
-   `(font-lock-function-name-face ((t (:foreground ,badger-orange :weight normal)))) 
-   `(font-lock-string-face ((t (:foreground ,badger-green))))
-   `(font-lock-variable-name-face ((t (:foreground ,badger-violet))))
-   ;;   `(font-lock-type-face ((t (:foreground ,badger-yellow))))
-   `(font-lock-type-face ((t (:foreground ,badger-sand))))   
-   `(font-lock-constant-face ((t (:foreground ,badger-salmon))))
    `(font-lock-warning-face ((t (:foreground ,badger-yellow :weight bold))))
+   `(font-lock-function-name-face ((t (:foreground ,badger-orange ))))
+   `(font-lock-variable-name-face ((t (:foreground ,badger-salmon))))
+   `(font-lock-keyword-face ((t (:foreground ,badger-blue))))
+   `(font-lock-comment-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
+   ;;`(font-lock-comment-delimiter-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
+   `(font-lock-type-face ((t (:foreground ,badger-sand))))
+   `(font-lock-constant-face ((t (:foreground ,badger-dark-violet))))
+   `(font-lock-builtin-face ((t (:foreground ,badger-violet))))
+   `(font-lock-preprocessor-face ((t (:foreground ,badger-sand))))
+   `(font-lock-string-face ((t (:foreground ,badger-green))))
+ ;;  `(font-lock-doc-face ((t (:foreground ,badger-green))))
+   
 
    ;; >>>>> eshell 
    `(eshell-prompt ((t (:foreground ,badger-lime))))
