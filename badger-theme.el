@@ -115,7 +115,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-function-name-face ((t (:foreground ,badger-orange ))))
    `(font-lock-variable-name-face ((t (:foreground ,badger-salmon))))
    `(font-lock-keyword-face ((t (:foreground ,badger-blue))))
-   `(font-lock-comment-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
+   `(font-lock-comment-face ((t (:foreground ,badger-charcoal))))
    ;;`(font-lock-comment-delimiter-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
    `(font-lock-type-face ((t (:foreground ,badger-sand))))
    `(font-lock-constant-face ((t (:foreground ,badger-dark-violet))))
