@@ -212,7 +212,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sml/vc-edited  ((t (:foreground ,badger-blue))))
    `(sml/modes ((t (:foreground ,badger-pink))))
    `(sml/position-percentage ((t (:foreground ,badger-charcoal))))
-   ) 
+
+   `(flyspell-incorrect ((t (:underline (:color ,badger-red :style wave)))))
+   `(flyspell-duplicate ((t (:underline (:color ,badger-yellow :style wave)))))
+   
+   )  
   )
 
 (setq ansi-color-names-vector
