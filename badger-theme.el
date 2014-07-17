@@ -1,21 +1,41 @@
-;;; badger-theme.el --- A theme for Emacs 24
+;;; badger-theme.el --- A dark theme for Emacs 24.  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2014  Cody Canning
+
+;; Author: Cody Canning <cocanning11@gmail.com>
+;; URL: https://github.com/ccann/badger-theme
+;; Version: 1.0.0
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Based loosely on both the wombat and tomorrow (Base16) themes.
+
+;;; Credits:
+
+;; The structure of this theme was based on zenburn-theme.el by Bozhidar Batsov
 
 ;;; Code:
-
 (deftheme badger "The Badger color theme")
 
-;;; Badger Color Pallette
+;; Badger Color Pallette
 (defvar badger-colors-alist
-  '(
-    ("badger-fg"            . "#F6F3E8")
+  '(("badger-fg"            . "#F6F3E8")
     ("badger-fg+1"          . "#FBF9F3")
     ("badger-bg"            . "#171717")
     ("badger-bg+1"          . "#2F2F2F")
 
-;;; Primary Hues
+;; Primary Hues
     ("badger-blue"          . "#8AC6F2")
     ("badger-charcoal"      . "#656868")
     ("badger-salmon"        . "#F28B86")
@@ -25,7 +45,7 @@
     ("badger-yellow"        . "#E0D063")
     ("badger-sand"          . "#C7B299")
 
-;;; Secondary Hues
+;; Secondary Hues
     ("badger-lime"          . "#84C452")
     ("badger-teal"          . "#65A399")
     ("badger-pink"          . "#E18CBB")
@@ -36,13 +56,13 @@
     ("badger-darker-violet" . "#433F4F")
     ("badger-olive"         . "#9AA68E")
 
-;;; Misc.
+;; Misc.
     ("badger-link"          . "#8ACDAA")
     ("badger-warn"          . "magenta")
     ("badger-succ"          . "cyan")
     ("badger-hl"            . "#1D1D1D")))
 
-(defmacro badger-with-color-variables (&rest body)
+(defmacro badger/with-color-variables (&rest body)
   "`let' bind all colors defined in `badger-colors-alist' around BODY.
 Also bind `class' to ((class color) (min-colors 89))."
   (declare (indent 0))
@@ -52,7 +72,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                    badger-colors-alist))
      ,@body))
 
-(badger-with-color-variables 
+(badger/with-color-variables 
   (custom-theme-set-faces
    'badger
 
@@ -118,7 +138,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-function-name-face ((t (:foreground ,badger-orange ))))
    `(font-lock-variable-name-face ((t (:foreground ,badger-salmon))))
    `(font-lock-keyword-face ((t (:foreground ,badger-blue))))
-   `(font-lock-comment-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
+   `(font-lock-comment-face ((t (:foreground ,badger-charcoal))))
    ;;`(font-lock-comment-delimiter-face ((t (:foreground ,badger-charcoal :weight light :slant italic))))
    `(font-lock-type-face ((t (:foreground ,badger-sand))))
    `(font-lock-constant-face ((t (:foreground ,badger-dark-violet))))
@@ -215,46 +235,24 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sml/vc-edited  ((t (:foreground ,badger-blue))))
    `(sml/modes ((t (:foreground ,badger-pink))))
    `(sml/position-percentage ((t (:foreground ,badger-charcoal))))
-   ) 
-  )
 
-(setq ansi-color-names-vector
-      ["black" "#E2434C" "#86B187" "#E0D063"  "#84C452" "#E18CBB" "#8AC6F2" "white"])
+   `(flyspell-incorrect ((t (:underline (:color ,badger-red :style wave)))))
+   `(flyspell-duplicate ((t (:underline (:color ,badger-yellow :style wave)))))
+   
+   ))
+
+
+(badger/with-color-variables
+  (custom-theme-set-variables
+   'badger
+   `(ansi-color-names-vector [,"black" ,"#E2434C" ,"#86B187" ,"#E0D063" ,"#84C452" ,"#E18CBB" ,"#8AC6F2" ,"white"])))
+
+;;;###autoload
+(when (and (boundp 'custom-theme-load-path) load-file-name)
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'badger)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ;;; badger-theme.el ends here
