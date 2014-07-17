@@ -109,6 +109,9 @@ Also bind `class' to ((class color) (min-colors 89))."
 
    ;;   `(mode-line-highlight ((t (:foreground ,badger-lime))))
 
+   ;; linum
+   `(linum ((t (:foreground ,badger-charcoal :background ,"black"))))
+   
 
    ;; >>>>> font-lock
    `(font-lock-warning-face ((t (:foreground ,badger-yellow :weight bold))))
@@ -219,5 +222,40 @@ Also bind `class' to ((class color) (min-colors 89))."
       ["black" "#E2434C" "#86B187" "#E0D063"  "#84C452" "#E18CBB" "#8AC6F2" "white"])
 
 (provide-theme 'badger)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;;; badger-theme.el ends here
     
