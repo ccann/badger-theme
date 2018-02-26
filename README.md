@@ -7,10 +7,16 @@ Dark Emacs 24 color theme (using deftheme). Inspired by the wombat theme, primar
 
 ## Installing
 
-If you don't know how to install a theme in Emacs, you can try this:
+If you don't already know how to install a theme in Emacs, you can try this:
 
     (add-to-list 'custom-theme-load-path "path/to/badger-theme-directory")
     (load-theme 'badger t)
+    
+    ;; OR via use-package
+    
+    (use-package badger-theme
+      :ensure t
+      :config (load-theme 'badger t))
 
 ## Org Mode
 
